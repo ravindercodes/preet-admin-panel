@@ -947,19 +947,19 @@ const AdmissionDetail = () => {
                     type="text"
                     name="subjects"
                     value={
-                      // Convert array to comma-separated string if needed
-                      Array.isArray(formData.subjects)
-                        ? formData.subjects.join(', ')
-                        : formData.subjects || ''
+                      // Handle all cases: array, string, or empty
+                      formData.subjects
+                        ? Array.isArray(formData.subjects)
+                          ? formData.subjects.join(', ')
+                          : String(formData.subjects).replace(/[\[\]"]/g, '')
+                        : ''
                     }
                     onChange={(e) => {
-                      // Update the form data directly (no conversion needed)
-                      handleChange({
-                        target: {
-                          name: 'subjects',
-                          value: e.target.value
-                        }
-                      });
+                      const { value } = e.target;
+                      setFormData(prev => ({
+                        ...prev,
+                        subjects: value
+                      }));
                     }}
                     disabled={!isEditMode}
                     required
