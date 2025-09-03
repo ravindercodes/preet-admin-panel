@@ -1,4 +1,4 @@
-import {, getAuthorizationHeader, handleQueryError} from "../helpers/RtkQueryUtils";
+import { getAuthorizationHeader, handleQueryError} from "@/helpers/RtkQueryUtils";
 import {dmApi} from "./dmApi";
 
 export const globalApi = dmApi.injectEndpoints({

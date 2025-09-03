@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { sliceNames } from "../helpers/constants";
+import { sliceNames } from "@/helpers/constants";
 
 const globalSliceReducerInitialState = {
     error: null,

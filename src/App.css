@@ -58,11 +58,27 @@ span.cmn_badge {
   font-size: 12px;
   line-height: 20px;
   padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Approved → Green */
+span.cmn_badge.approved {
+  background: rgba(220, 255, 220, 1); /* light green bg */
+  color: rgba(25,135,84); /* dark green text */
+}
+
+/* Rejected → Red */
+span.cmn_badge.rejected {
+  background: rgba(255, 220, 220, 1); /* light red bg */
+  color: rgba(200, 0, 0, 1); /* dark red text */
+}
+
+/* Non-approved → Yellow (your current one) */
+span.cmn_badge.non-approved {
   background: rgba(255, 238, 212, 1);
   color: rgba(238, 156, 31, 1);
-  border-radius: 8px;
-  font-weight:600;
-  cursor: pointer;
 }
 .filter_head h3 {
   font-family: Public Sans;

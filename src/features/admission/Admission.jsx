@@ -16,22 +16,22 @@ const Admission = () => {
     const [filterType, setFilterType] = useState('all'); // 'all', 'approved', 'notApproved'
     const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
-    
+
     // Determine which data to display based on filter
     const filteredData = filterType === 'approved' ? approvedAdmissions :
                        filterType === 'notApproved' ? nonApprovedAdmissions :
                        filterType === 'rejected' ? rejectedAdmissions :
                        [...(approvedAdmissions || []), ...(nonApprovedAdmissions || []), ...(rejectedAdmissions || [])];
-    
+
     // Apply search filter if search term exists
-    const displayData = searchTerm.trim() ? 
-        filteredData.filter(student => 
-            student.name?.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    const displayData = searchTerm.trim() ?
+        filteredData.filter(student =>
+            student.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
             student.father_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
             student.roll_number?.toLowerCase().includes(searchTerm.toLowerCase())
-        ) : 
+        ) :
         filteredData;
-    
+
     const handleFilterChange = (e) => {
         setFilterType(e.target.value);
     };
@@ -40,7 +40,7 @@ const Admission = () => {
         // Navigate to detail page with student data using React Router
         navigate(`/admission/${student.id}`);
     };
-    
+
     const handleSearch = (e) => {
         setSearchTerm(e.target.value);
     };
@@ -55,8 +55,19 @@ const Admission = () => {
         {
             label: "Status",
             accessor: "status",
-            cell: ({ value }) => <span className={value === 'Active' ? 'cmn_badge' : 'cmn_badge inactive'}>{value}</span>, // Conditional class
-        },
+          cell: ({ value }) => {
+            let badgeClass = "cmn_badge";
+
+            if (value?.toLowerCase() === "approved") {
+              badgeClass += " approved";
+            } else if (value?.toLowerCase() === "rejected") {
+              badgeClass += " rejected";
+            } else {
+              badgeClass += " non-approved"; // default
+            }
+
+            return <span className={badgeClass}>{value}</span>;
+          },        },
         {
             label: "Edit/Delete",
             accessor: "actions",
@@ -136,7 +147,7 @@ const Admission = () => {
                     </Col>
                 </Row>
             </div>
-            
+
             <Datatable
                 title="Students Data"
                 columns={columns}
