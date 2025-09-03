@@ -1,0 +1,46 @@
+{
+  "name": "preet-institute",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.5.1",
+    "@tanstack/react-table": "^8.20.6",
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
+    "highcharts": "^12.1.2",
+    "highcharts-react-official": "^3.2.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.5.1",
+    "react-paginate": "^8.3.0",
+    "react-redux": "^9.2.0",
+    "react-router": "^7.1.5",
+    "react-router-dom": "^7.1.5",
+    "react-toastify": "^11.0.3",
+    "redux-thunk": "^3.1.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "start:dev": "env-cmd -f .env.dev vite",
+    "start:prod": "env-cmd -f .env.prod vite",
+    "build": "vite build",
+    "build:dev": "env-cmd -f .env.dev vite build",
+    "build:prod": "env-cmd -f .env.prod vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "env-cmd": "^10.1.0",
+    "eslint": "^9.32.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "vite": "^7.0.6"
+  }
+}

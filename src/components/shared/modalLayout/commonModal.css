@@ -1,0 +1,43 @@
+.modal-title.h4 {
+    font-family: Public Sans;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+button.btn-close {
+    background-color: var(--primary-color);
+    opacity: 1;
+}
+
+.modal-header .cmn_btn {
+    padding: 3px;
+    height: auto;
+    border-radius: 4px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+}
+.modal-dialog {
+    max-width: 880px;
+}
+.overviewHead h6 {
+    font-family: 'Public Sans';
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--bs-black);
+    margin: 0;
+}
+
+.overviewHead h4 span {
+    color: var(--primary-color);
+}
+.overviewHead h4 {
+    font-family: 'Public Sans';
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 40px;
+    margin-bottom: 0px;
+}

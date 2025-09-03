@@ -1,0 +1,167 @@
+.side_bar button.accordion-button.collapsed {
+    border: unset;
+}
+.side_logo{
+    padding: 14px 0px;
+    border-bottom: 1px solid rgba(234, 234, 234, 1);
+    margin-bottom: 8px;
+}
+.side_bar li a,.side_bar .accordion-button, .side_bar li.activeLink .accordion-body a {
+    font-family: 'Public Sans';
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(74, 76, 86, 1);
+    background-color: transparent;
+    padding: 10px;
+}
+
+.side_bar li.activeLink a,.side_bar li.activeLink .accordion-body .active_accordian a {
+    color: var(--primary-color);
+    background: rgba(255, 240, 234, 1);
+    display: block;
+
+}
+
+
+.side_bar .accordion-button, .side_bar .accordion-button:focus {
+    background: transparent;
+    box-shadow: unset;
+    box-shadow: 4px 0px 30px 0px rgba(131, 98, 234, 0.05);
+
+}
+
+.side_bar {
+    border-right: 1px solid rgba(240, 241, 243, 1);
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.side_bar .activeLink button.accordion-button {
+    background: rgba(255, 240, 234, 1);
+}
+div.side_bar li.outerlist a, .side_bar .accordion-button {
+    padding: 12px;
+    padding-left: 24px;
+    display: block;
+}
+.side_bar .accordion-button{
+    display: flex;
+    gap: .6rem;
+}
+li.outerlist.activeLink  svg path {
+    fill: var(--primary-color);
+}
+.accordion-body {
+    padding-left: 36px;
+}
+
+.accordion-body ul {
+    border-left: 2px solid rgba(217, 217, 217, 1);
+    padding: 0;
+    margin: 0;
+}
+
+.accordion-body ul.list-unstyled li {
+    padding-left: 10px;
+}
+.accordion-body ul.list-unstyled li a {
+    border-radius: 8px;
+    padding: 10px;
+}
+li.outerlist.activeLink {
+    position: relative;
+}
+
+li.outerlist.activeLink::before {
+    width: 4px;
+    height: 47px;
+    background: var(--primary-color);
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 4;
+    left: 0px;
+}
+li.outerlist.activeLink {
+    position: relative;
+}
+
+li.outerlist.activeLink::before {
+    width: 4px;
+    height: 47px;
+    background: var(--primary-color);
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 4;
+    left: 0px;
+}
+
+li.logout {
+    position: absolute;
+    bottom: 12px;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    cursor: pointer;
+}
+li.outerlist.activeLink .accordion-button {
+    color: var(--primary-color);
+}
+li.logout span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 240, 234, 1);
+    padding: 8px;
+    color: var(--primary-color);
+    font-family: Public Sans;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18.8px;
+    gap: 10px;
+    border-radius: 8px;
+}
+.side_logo {
+    overflow: hidden;
+    position: relative;
+}
+.side_logo::before, .side_logo::after {
+    position: absolute;
+    content: "";  
+    width: 210px;
+    height: 210px;
+    border-radius: 100%;
+}
+
+.side_logo::before {
+    background: linear-gradient(180deg, #ED9C23 0%, rgba(237, 242, 247, 0) 100%);
+    transform: rotate(-11deg);
+    left: -57px;
+    top: -107px;
+    opacity: 0.1;
+}
+
+.side_logo::after {
+    transform: rotate(17deg);
+    right: -64px;
+    top: -132px;
+    background: linear-gradient(180deg, #ED9C23 0%, rgba(237, 242, 247, 0) 100%);
+    z-index: 2;
+    opacity: 0.65;
+}
+.outerlist .accordion-button::after {
+display: none;
+}
+.outerlist span.arrow_down {
+    margin-left: auto;
+}
+.outerlist button.accordion-button.collapsed span.arrow_down {
+    transform: rotate(0deg);
+}
+.outerlist button.accordion-button span.arrow_down {
+    transform: rotate(180deg);
+}
