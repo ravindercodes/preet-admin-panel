@@ -51,7 +51,7 @@ const Admission = () => {
         { label: "Class", accessor: "class_wish" },
         { label: "Roll no", accessor: "roll_number" },
         { label: "Address", accessor: "address" },
-        { label: "Contact Date", accessor: "created_at" },
+        { label: "Phone Number", accessor: "mobile1" },
         {
             label: "Status",
             accessor: "status",
