@@ -420,7 +420,7 @@ const AdmissionDetail = () => {
   };
 
   // Base storage path for documents
-  const BASE_STORAGE_PATH = 'https://preet-api.elevencoder.com/storage/app/public/';
+  const BASE_STORAGE_PATH = 'https://api.preetinstitute.in/storage/app/public/';
 
   // Get status badge color
   const getStatusBadge = (status) => {
@@ -688,9 +688,7 @@ const AdmissionDetail = () => {
                     <div>
                       <strong>Course:</strong> {formData.class_wish || 'N/A'}
                     </div>
-                    <div>
-                      <strong>Subjects:</strong> {formData.subjects || 'N/A'}
-                    </div>
+
                     <div>
                       <strong>DOB:</strong> {formData.dob || 'N/A'}
                     </div>
@@ -948,10 +946,24 @@ const AdmissionDetail = () => {
                   <Form.Control
                     type="text"
                     name="subjects"
-                    value={formData.subjects || ''}
-                    onChange={handleChange}
+                    value={
+                      // Convert array to comma-separated string if needed
+                      Array.isArray(formData.subjects)
+                        ? formData.subjects.join(', ')
+                        : formData.subjects || ''
+                    }
+                    onChange={(e) => {
+                      // Update the form data directly (no conversion needed)
+                      handleChange({
+                        target: {
+                          name: 'subjects',
+                          value: e.target.value
+                        }
+                      });
+                    }}
                     disabled={!isEditMode}
                     required
+                    placeholder="Enter subjects separated by commas (e.g., Math, Science, English)"
                   />
                 </Form.Group>
               </Col>
