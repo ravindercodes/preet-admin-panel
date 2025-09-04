@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Form, Button, Container, Row, Col, Card, Badge, Modal, Alert, Image } from 'react-bootstrap';
 import {
   useApproveAdmissionMutation,
@@ -12,7 +12,6 @@ import {
 } from './admissionsApi';
 import { LeftArrowSvg } from '@/svgFiles/LeftArrowSvg';
 import ConfirmationModal from '../../components/shared/modalContent/ConfirmationModal';
-import { PlusSvg } from '@/svgFiles/PlusSvg';
 import { DocumentSvg } from '@/svgFiles/DocumentSvg';
 import { toast } from 'react-hot-toast';
 
@@ -1075,19 +1074,19 @@ const AdmissionDetail = () => {
                       key: 'marksheet_10',
                       label: '10th Marksheet',
                       value: formData.marksheet_10,
-                      editable: false
+                      editable: true
                     },
                     {
                       key: 'marksheet_12',
                       label: '12th Marksheet',
                       value: formData.marksheet_12,
-                      editable: false
+                      editable: true
                     },
                     {
                       key: 'aadhar_card',
                       label: 'Aadhar Card',
                       value: formData.aadhar_card,
-                      editable: false
+                      editable: true
                     },
                     {
                       key: 'passport_photo',

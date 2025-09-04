@@ -19,6 +19,7 @@ import ForgetPassword from "./features/auth/forgetPassword/ForgetPassword.jsx";
 import Admission from "./features/admission/Admission.jsx";
 import AdmissionDetail from "./features/admission/AdmissionDetail.jsx";
 import VerifyStudent from "./features/admission/VerifyStudent.jsx";
+import RegistrationEntries from "./features/registrationEntries/RegistrationEntries.jsx";
 // import Contact from "./pages/Contact";
 
 function App() {
@@ -79,6 +80,8 @@ function App() {
                         <Route path={AppRoutes.Admission.Pending} element={<Admission/>}/>
                         <Route path={AppRoutes.Admission.Detail} element={<AdmissionDetail/>}/>
                         <Route path={AppRoutes.Admission.Verify} element={<VerifyStudent/>}/>
+                        {/* Registration Entries Routes */}
+                        <Route path={AppRoutes.RegistrationEntries.path} element={<RegistrationEntries/>}/>
                         {/* Contact Routes */}
                         {/*<Route path={AppRoutes.Contact.path} element={<Contact/>}/>*/}
                         {/*<Route path={AppRoutes.Contact.List} element={<Contact/>}/>*/}

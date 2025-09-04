@@ -24,6 +24,11 @@ export const MenuItems = [
           path: "/admission/verify-student",
           roles: ["admin", "user", "manager"],
         },
+        {
+          title: "Registration Entries",
+          path: "/registration-entries",
+          roles: ["admin", "user", "manager"],
+        },
       ],
     },
     {

@@ -21,6 +21,11 @@ export const Routes = {
         Detail: "/admission/:id",
         Verify: "/admission/verify-student"
     },
+    // Registration Entries Routes
+    RegistrationEntries: {
+        path: "/registration-entries",
+        Detail: "/registration-entries/:id"
+    },
     // Contact Routes
     Contact: {
         path: "/contact",
