@@ -14,6 +14,7 @@ const AddRegistrationEntryModal = ({ show, onHide, entry, admissionId }) => {
 
   const [createEntry, { isLoading: isCreating }] = useCreateRegistrationEntryMutation();
   const [updateEntry, { isLoading: isUpdating }] = useUpdateRegistrationEntryMutation();
+  const [errors, setErrors] = useState({});
 
   // If entry is provided, populate form for editing
   useEffect(() => {
@@ -43,6 +44,13 @@ const AddRegistrationEntryModal = ({ show, onHide, entry, admissionId }) => {
       ...prev,
       [name]: value
     }));
+
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
   const handleFileChange = (e) => {
@@ -55,20 +63,31 @@ const AddRegistrationEntryModal = ({ show, onHide, entry, admissionId }) => {
     }
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
+    if (!formData.registration_number.trim()) newErrors.registration_number = 'Registration number is required';
+    if (!formData.marks.trim()) newErrors.marks = 'Marks are required';
+    // mark_sheet and result_certificate are optional → no validation here
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validateForm()) return;
 
     try {
       const formDataObj = new FormData();
 
-      // Add all form fields to FormData
       Object.keys(formData).forEach(key => {
         if (formData[key] !== null && formData[key] !== '') {
           formDataObj.append(key, formData[key]);
         }
       });
 
-      // Add admission ID and status
       formDataObj.append('admission_id', admissionId);
       formDataObj.append('status', "registration");
 
@@ -97,24 +116,32 @@ const AddRegistrationEntryModal = ({ show, onHide, entry, admissionId }) => {
           <Row>
             <Col md={6}>
               <Form.Group className="mb-3">
-                <Form.Label>Name</Form.Label>
+                <Form.Label>Name *</Form.Label>
                 <Form.Control
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
+                  isInvalid={!!errors.name}
                 />
+                <Form.Control.Feedback type="invalid">
+                  {errors.name}
+                </Form.Control.Feedback>
               </Form.Group>
             </Col>
             <Col md={6}>
               <Form.Group className="mb-3">
-                <Form.Label>Registration Number</Form.Label>
+                <Form.Label>Registration Number *</Form.Label>
                 <Form.Control
                   type="text"
                   name="registration_number"
                   value={formData.registration_number}
                   onChange={handleChange}
+                  isInvalid={!!errors.registration_number}
                 />
+                <Form.Control.Feedback type="invalid">
+                  {errors.registration_number}
+                </Form.Control.Feedback>
               </Form.Group>
             </Col>
           </Row>
@@ -122,13 +149,17 @@ const AddRegistrationEntryModal = ({ show, onHide, entry, admissionId }) => {
           <Row>
             <Col md={12}>
               <Form.Group className="mb-3">
-                <Form.Label>Marks</Form.Label>
+                <Form.Label>Marks *</Form.Label>
                 <Form.Control
                   type="text"
                   name="marks"
                   value={formData.marks}
                   onChange={handleChange}
+                  isInvalid={!!errors.marks}
                 />
+                <Form.Control.Feedback type="invalid">
+                  {errors.marks}
+                </Form.Control.Feedback>
               </Form.Group>
             </Col>
           </Row>
@@ -136,7 +167,7 @@ const AddRegistrationEntryModal = ({ show, onHide, entry, admissionId }) => {
           <Row>
             <Col md={6}>
               <Form.Group className="mb-3">
-                <Form.Label>Mark Sheet</Form.Label>
+                <Form.Label>Mark Sheet (Optional)</Form.Label>
                 <Form.Control
                   type="file"
                   name="mark_sheet"
@@ -152,7 +183,7 @@ const AddRegistrationEntryModal = ({ show, onHide, entry, admissionId }) => {
             </Col>
             <Col md={6}>
               <Form.Group className="mb-3">
-                <Form.Label>Result Certificate</Form.Label>
+                <Form.Label>Result Certificate (Optional)</Form.Label>
                 <Form.Control
                   type="file"
                   name="result_certificate"

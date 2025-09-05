@@ -30,12 +30,12 @@ export const MenuItems = [
           roles: ["admin", "user", "manager"],
         },
       ],
-    },
-    {
-        title: "Contact",
-        path: "/contact",
-        roles: ["admin", "user", "manager"],
-        icon: <AdmissionIcon />,
-        subMenu: [],
     }
+    // {
+    //     title: "Contact",
+    //     path: "/contact",
+    //     roles: ["admin", "user", "manager"],
+    //     icon: <AdmissionIcon />,
+    //     subMenu: [],
+    // }
   ];
